@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { CircularVideoPlayer } from './CircularVideoPlayer';
 
 export const Wings = () => {
   const leftWingImages = [
@@ -68,7 +69,7 @@ export const Wings = () => {
   ];
 
   return (
-    <div className="absolute bottom-10 w-[58.92431rem] flex justify-center">
+    <div className="absolute top-[18rem] w-[58.92431rem] flex justify-center">
       <div className="flex justify-center gap-20 flex-1">
         <motion.img
           src="/images/arc.svg"
@@ -81,6 +82,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
+            delay: 1,
           }}
         />
         <motion.img
@@ -94,6 +96,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
+            delay: 1,
           }}
         />
         <div className="absolute bottom-0 left-0 h-[43rem] w-auto flex flex-col justify-center items-end">
@@ -110,13 +113,19 @@ export const Wings = () => {
                 alt="left-wing-content"
                 className={`${image.width} relative`}
                 style={{ right: image.right, top: image.top }}
-                initial={{ y: initialY, rotate: initialRotate, x: 70 }}
-                animate={{ y: 0, rotate: 0, x: 0 }}
+                initial={{
+                  opacity: 0,
+                  y: initialY,
+                  rotate: initialRotate,
+                  x: 70,
+                }}
+                animate={{ opacity: 1, y: 0, rotate: 0, x: 0 }}
                 transition={{
                   type: 'spring' as const,
                   stiffness: 120,
                   damping: 15,
                   duration: 0.8,
+                  delay: 1,
                 }}
               />
             );
@@ -136,6 +145,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
+            delay: 1,
           }}
         />
 
@@ -148,6 +158,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
+            delay: 1,
           }}
         >
           <img
@@ -171,19 +182,26 @@ export const Wings = () => {
                 alt="right-wing-content"
                 className={`${image.width} relative`}
                 style={{ left: image.left, top: image.top }}
-                initial={{ y: initialY, rotate: initialRotate, x: -70 }}
-                animate={{ y: 0, rotate: 0, x: 0 }}
+                initial={{
+                  opacity: 0,
+                  y: initialY,
+                  rotate: initialRotate,
+                  x: -70,
+                }}
+                animate={{ opacity: 1, y: 0, rotate: 0, x: 0 }}
                 transition={{
                   type: 'spring' as const,
                   stiffness: 120,
                   damping: 15,
                   duration: 0.8,
+                  delay: 1,
                 }}
               />
             );
           })}
         </div>
       </div>
+      <CircularVideoPlayer />
     </div>
   );
 };
