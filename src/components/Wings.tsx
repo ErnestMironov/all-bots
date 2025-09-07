@@ -12,7 +12,7 @@ export const Wings = () => {
     {
       src: '/images/wings/left/2.png',
       width: 'w-[11.00031rem]',
-      right: '3rem',
+      right: '3.5rem',
       top: '9rem',
     },
     {
@@ -39,42 +39,42 @@ export const Wings = () => {
     {
       src: '/images/wings/right/1.png',
       width: 'w-[8.66788rem]',
-      left: '0',
-      top: '2.5rem',
+      left: '-1.1rem',
+      top: '2.6rem',
     },
     {
       src: '/images/wings/right/2.png',
       width: 'w-[9.3835rem]',
-      left: '3rem',
-      top: '0rem',
+      left: '1.5rem',
+      top: '0.8rem',
     },
     {
       src: '/images/wings/right/3.png',
       width: 'w-[9.91569rem]',
-      left: '3.5rem',
-      top: '0.5rem',
+      left: '2.3rem',
+      top: '1.2rem',
     },
     {
       src: '/images/wings/right/4.png',
       width: 'w-[8.28706rem]',
-      left: '3rem',
-      top: '2.5rem',
+      left: '1.5rem',
+      top: '3rem',
     },
     {
       src: '/images/wings/right/5.png',
       width: 'w-[8.67763rem]',
-      left: '0',
-      top: '1.5rem',
+      left: '-1.2rem',
+      top: '2.7rem',
     },
   ];
 
   return (
-    <div className="absolute top-[18rem] w-[58.92431rem] flex justify-center">
+    <div className="absolute top-[15.5rem] w-[58.92431rem] flex justify-center">
       <div className="flex justify-center gap-20 flex-1">
         <motion.img
           src="/images/arc.svg"
           alt="arc"
-          className="h-[35.40763rem] w-auto absolute -bottom-[5rem] left-0"
+          className="h-[35.40763rem] w-auto absolute -bottom-[5rem] left-4"
           initial={{ x: 300, opacity: 0, scale: 0.8 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
           transition={{
@@ -137,7 +137,7 @@ export const Wings = () => {
         <motion.img
           src="/images/right-wing.svg"
           alt="right-wing"
-          className="h-[23.59963rem]"
+          className="h-[23.59963rem] relative top-4 right-[1.9rem]"
           initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -150,7 +150,7 @@ export const Wings = () => {
         />
 
         <motion.div
-          className="h-[35.40763rem] w-auto absolute -bottom-12 right-0"
+          className="h-[35.40763rem] w-auto absolute -bottom-[3.5rem] right-[2rem]"
           initial={{ x: -300, opacity: 0, scale: 0.8 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
           transition={{
@@ -164,7 +164,7 @@ export const Wings = () => {
           <img
             src="/images/arc.svg"
             alt="arc"
-            className="h-full w-auto -scale-x-100"
+            className="h-full w-auto -scale-x-100 rotate-[-4deg]"
           />
         </motion.div>
 

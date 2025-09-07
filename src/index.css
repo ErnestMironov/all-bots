@@ -9,7 +9,7 @@ html {
   font-family: 'Suisse Intl', sans-serif;
 }
 
-@media (min-width: 1138px) {
+@media (min-width: 1139px) {
   html {
     font-size: 16px;
   }

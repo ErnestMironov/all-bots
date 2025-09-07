@@ -48,7 +48,7 @@ export const CircularVideoPlayer = () => {
   };
 
   return (
-    <div className="absolute w-[25.4375rem] h-[16.875rem] -bottom-20 left-1/2 -translate-x-1/2">
+    <div className="absolute w-[25.4375rem] h-[16.875rem] -bottom-[6rem] left-1/2 -translate-x-1/2">
       <motion.div
         className="flex justify-center items-center relative"
         initial={{ opacity: 0, y: 200 }}
@@ -80,7 +80,7 @@ export const CircularVideoPlayer = () => {
           className="absolute w-[42rem] max-w-[100vw] -top-[21rem]"
         />
 
-        <motion.div className="absolute top-[9rem] left-1/2 -translate-x-1/2">
+        <motion.div className="absolute top-[8rem] left-1/2 -translate-x-1/2">
           <Tabs
             tabs={tabs}
             activeTab={activeTab}
