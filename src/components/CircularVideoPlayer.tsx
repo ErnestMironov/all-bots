@@ -68,7 +68,7 @@ export const CircularVideoPlayer = () => {
           style={{
             clipPath: 'circle(50% at 50% 50%)',
           }}
-          className="absolute size-[19.125rem] object-cover object-center"
+          className="absolute size-[19.125rem] object-cover object-center bg-black"
           autoPlay
           muted
           loop={loop}
