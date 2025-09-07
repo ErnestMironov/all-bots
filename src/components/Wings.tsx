@@ -82,7 +82,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
-            delay: 1,
+            delay: 0.1,
           }}
         />
         <motion.img
@@ -96,7 +96,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
-            delay: 1,
+            delay: 0.1,
           }}
         />
         <div className="absolute bottom-0 left-0 h-[43rem] w-auto flex flex-col justify-center items-end">
@@ -125,7 +125,7 @@ export const Wings = () => {
                   stiffness: 120,
                   damping: 15,
                   duration: 0.8,
-                  delay: 1,
+                  delay: 0.1,
                 }}
               />
             );
@@ -145,7 +145,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
-            delay: 1,
+            delay: 0.1,
           }}
         />
 
@@ -158,7 +158,7 @@ export const Wings = () => {
             stiffness: 100,
             damping: 15,
             duration: 1,
-            delay: 1,
+            delay: 0.1,
           }}
         >
           <img
@@ -194,7 +194,7 @@ export const Wings = () => {
                   stiffness: 120,
                   damping: 15,
                   duration: 0.8,
-                  delay: 1,
+                  delay: 0.1,
                 }}
               />
             );

@@ -9,6 +9,7 @@ interface Tab {
 interface TabsProps {
   tabs: Tab[];
   defaultTab?: string;
+  activeTab?: string;
   onTabChange?: (tabId: string) => void;
   className?: string;
 }
@@ -16,13 +17,19 @@ interface TabsProps {
 export const Tabs = ({
   tabs,
   defaultTab,
+  activeTab: controlledActiveTab,
   onTabChange,
   className = '',
 }: TabsProps) => {
-  const [activeTab, setActiveTab] = useState(defaultTab || tabs[0]?.id);
+  const [internalActiveTab, setInternalActiveTab] = useState(
+    defaultTab || tabs[0]?.id
+  );
+  const activeTab = controlledActiveTab ?? internalActiveTab;
 
   const handleTabClick = (tabId: string) => {
-    setActiveTab(tabId);
+    if (controlledActiveTab === undefined) {
+      setInternalActiveTab(tabId);
+    }
     onTabChange?.(tabId);
   };
 

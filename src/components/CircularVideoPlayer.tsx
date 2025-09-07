@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Tabs } from './Tabs';
 
 export const CircularVideoPlayer = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSource, setVideoSource] = useState('/videos/filter.mp4');
+  const [loop, setLoop] = useState(false);
+  const [activeTab, setActiveTab] = useState('filter');
 
   const tabs = [
     { id: 'filter', label: 'Filter' },
@@ -11,21 +14,36 @@ export const CircularVideoPlayer = () => {
     { id: 'auto', label: 'Auto' },
   ];
 
-  const tabTimeSegments = {
-    filter: 0,
-    strategy: 20,
-    auto: 24,
-  };
-
   const handleTabChange = (tabId: string) => {
     console.log('Active tab:', tabId);
+    setActiveTab(tabId);
 
-    if (
-      videoRef.current &&
-      tabTimeSegments[tabId as keyof typeof tabTimeSegments] !== undefined
-    ) {
-      const targetTime = tabTimeSegments[tabId as keyof typeof tabTimeSegments];
-      videoRef.current.currentTime = targetTime;
+    const videoMap = {
+      filter: '/videos/filter.mp4',
+      strategy: '/videos/strategy.mp4',
+      auto: '/videos/chart-video.mp4',
+    };
+
+    const videoSrc = videoMap[tabId as keyof typeof videoMap];
+    if (videoSrc) {
+      setVideoSource(videoSrc);
+      setLoop(tabId === 'auto');
+
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+        }
+      }, 100);
+    }
+  };
+
+  const handleVideoEnded = () => {
+    const currentTabIndex = tabs.findIndex(tab => tab.id === activeTab);
+    const nextTabIndex = currentTabIndex + 1;
+
+    if (nextTabIndex < tabs.length) {
+      const nextTab = tabs[nextTabIndex];
+      handleTabChange(nextTab.id);
     }
   };
 
@@ -40,19 +58,21 @@ export const CircularVideoPlayer = () => {
           stiffness: 100,
           damping: 15,
           duration: 1,
-          delay: 1,
+          delay: 0.1,
         }}
       >
         <motion.video
           ref={videoRef}
-          src="/videos/video.mp4"
+          src={videoSource}
+          key={videoSource}
           style={{
             clipPath: 'circle(50% at 50% 50%)',
           }}
           className="absolute size-[19.125rem] object-cover object-center"
           autoPlay
           muted
-          loop
+          loop={loop}
+          onEnded={handleVideoEnded}
         />
         <motion.img
           src="/images/video-mask.svg"
@@ -63,7 +83,7 @@ export const CircularVideoPlayer = () => {
         <motion.div className="absolute top-[9rem] left-1/2 -translate-x-1/2">
           <Tabs
             tabs={tabs}
-            defaultTab="filter"
+            activeTab={activeTab}
             onTabChange={handleTabChange}
             className="backdrop-blur-sm rounded-lg px-2 py-1"
           />
