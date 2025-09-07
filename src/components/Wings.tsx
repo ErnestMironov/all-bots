@@ -107,27 +107,32 @@ export const Wings = () => {
             const initialRotate = distanceFromBottom * -5;
 
             return (
-              <motion.img
-                key={image.src}
-                src={image.src}
-                alt="left-wing-content"
-                className={`${image.width} relative`}
-                style={{ right: image.right, top: image.top }}
-                initial={{
-                  opacity: 0,
-                  y: initialY,
-                  rotate: initialRotate,
-                  x: 70,
-                }}
-                animate={{ opacity: 1, y: 0, rotate: 0, x: 0 }}
-                transition={{
-                  type: 'spring' as const,
-                  stiffness: 120,
-                  damping: 15,
-                  duration: 0.8,
-                  delay: 0.1,
-                }}
-              />
+              <picture key={image.src}>
+                <source
+                  srcSet={image.src.replace('.png', '.webp')}
+                  type="image/webp"
+                />
+                <motion.img
+                  src={image.src}
+                  alt="left-wing-content"
+                  className={`${image.width} relative`}
+                  style={{ right: image.right, top: image.top }}
+                  initial={{
+                    opacity: 0,
+                    y: initialY,
+                    rotate: initialRotate,
+                    x: 70,
+                  }}
+                  animate={{ opacity: 1, y: 0, rotate: 0, x: 0 }}
+                  transition={{
+                    type: 'spring' as const,
+                    stiffness: 120,
+                    damping: 15,
+                    duration: 0.8,
+                    delay: 0.1,
+                  }}
+                />
+              </picture>
             );
           })}
         </div>

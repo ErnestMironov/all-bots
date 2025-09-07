@@ -34,7 +34,7 @@ export const Hero = () => {
         }}
       >
         <img
-          src="/images/robot-switcher.png"
+          src="/images/robot-switcher.svg"
           className="h-[3rem] w-auto"
           alt="robot-switcher"
         />
